@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  install:
+    docker:
+      - image: "node:dubnium"
+      steps:
+        - checkout:
+        - attach_workspace:
+            at: .
+        - run:
+            name: Install node dependencies
+            command: npm install
+        - persist_to_workspace:
+            root: .
+            paths:
+              - .
